@@ -1,0 +1,30 @@
+<app-user-navbar></app-user-navbar>
+
+
+<div class="mainbody">
+    <div class="content">
+
+        <div class="card">
+            <div class="header stopwatch">
+                <span>{{hr}} : </span>
+                <span>{{min}} : </span>
+                <span>{{sec}} : </span>
+                <span>{{ms}}</span>
+                <div class="button-container">
+                    <button class="play-pause-btn ripple">
+                        <i *ngIf="!running" class="fas fa-play"></i> <i *ngIf="running" class="fas fa-pause"></i> start
+                    </button> 
+                    <button class="ripple"><i class="fas fa-redo-alt"></i> stop</button>
+                </div>
+            </div>
+            <div class="info">
+                <p class="title">Pending Tasks</p>
+                <p>learn angular. </p>
+            </div>
+            <div class="footer">
+                <button type="button" class="action">New Task </button>
+            </div>
+        </div>
+    </div>
+
+</div>

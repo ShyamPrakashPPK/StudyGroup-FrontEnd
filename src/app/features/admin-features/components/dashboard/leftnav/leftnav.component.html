@@ -1,0 +1,15 @@
+
+    <mat-toolbar color="primary">
+        <button (click)="toggleAction()" mat-icon-button class="example-icon"
+            aria-label="Example icon-button with menu icon">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <span>Study Group</span>
+        <span class="example-spacer"></span>
+        <button mat-icon-button aria-label="Example home icon" fontIcon="home" [routerLink]="['../admin-dashboard']">
+            <mat-icon>home</mat-icon>
+        </button>
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" (click)="logOut()">
+            <mat-icon>cancel</mat-icon>
+        </button>
+    </mat-toolbar>

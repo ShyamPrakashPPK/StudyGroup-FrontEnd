@@ -1,0 +1,25 @@
+
+    <app-leftnav (toggledEvent)="drawer.toggle()"></app-leftnav>
+    
+    
+    <mat-drawer-container class="example-container" autosize>
+        <mat-drawer #drawer class="example-sidenav" mode="side">
+            <mat-list role="list">
+                <mat-list-item routerLink="user-management" role="listitem">User Management</mat-list-item>
+                <mat-list-item routerLink="room-management" role="listitem">Room Management</mat-list-item>
+                <mat-list-item routerLink="post-management" role="listitem">Post Management</mat-list-item>
+            </mat-list>
+    
+        </mat-drawer>
+        <div class="example-sidenav-content">
+            
+            <mat-card class="main-content">
+                <mat-card-content>
+                    <router-outlet></router-outlet>
+                </mat-card-content>
+            </mat-card>
+            </div>
+    
+    </mat-drawer-container>
+
+    

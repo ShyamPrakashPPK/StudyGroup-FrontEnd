@@ -1,0 +1,248 @@
+.container {
+    padding: 5% 10% 10% 10%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.bodypart {
+    margin-right: 15%;
+}
+
+
+.message-card {
+    position: absolute;
+    top: 0;
+    margin: 5% 3% 0% 1%;
+    right: 0;
+    width: 300px;
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ffffff;
+    padding: 10px;
+    background: white;
+    border-radius: 10px;
+    transition: border-radius 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: height 0.3s ease-in-out;
+    box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1),
+        0 0 0 2px rgb(219, 219, 219),
+        0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+    overflow-y: auto;
+}
+
+.message-card:hover {
+    overflow-y: visible;
+    /* Disable scrolling when hovering to allow the card to expand */
+}
+
+.message-card p {
+    margin: 0;
+    padding: 5px 0;
+}
+
+
+@media (max-width: 480px) {
+    .roomcardarea {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-auto-rows: auto;
+        grid-gap: 1.1rem;
+        margin: 10% 0% 10% 0%;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 1024px) {
+    .roomcardarea {
+        display: grid;
+        align-items: center;
+        grid-template-columns: repeat(1, 1fr);
+        grid-auto-rows: auto;
+        grid-gap: 1.1rem;
+        margin: 10% 10% 10% 10%;
+    }
+}
+
+@media (min-width: 1025px) {
+    .roomcardarea {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: auto;
+        grid-gap: 1.1rem;
+        margin: 10% 0% 10% 0%;
+    }
+}
+
+
+
+.cardtop {
+    background: radial-gradient(#2294d6, #3c5575);
+    width: 100%;
+    min-height: 200px;
+    display: grid;
+    grid-template-rows: 20px 50px 1fr 50px;
+    border-radius: 10px;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+    transition: all 0.2s;
+}
+
+.cardtop:hover {
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
+    transform: scale(1.01);
+}
+
+
+
+
+.cardtop h1 {
+    padding: 20px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white;
+}
+
+.cardtop h2 {
+    padding: 20px;
+    font-size: 1rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.card__title {
+    grid-row: 3/4;
+    font-weight: 400;
+    color: #ffffff;
+}
+
+
+@media (max-width: 1600px) {
+    .cards {
+        justify-content: center;
+    }
+}
+
+
+
+
+.cardtop button {
+    position: relative;
+    margin: 5% 5% 0% 75%;
+    padding: 1%;
+    align-items: center;
+    background-image: linear-gradient(144deg, #AF40FF, #5B42F3 50%, #00DDEB);
+    border: 0;
+    border-radius: 8px;
+    box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    display: flex;
+    font-family: Phantomsans, sans-serif;
+    font-size: 18px;
+    justify-content: center;
+    line-height: 1em;
+    max-width: 100%;
+    min-width: 100px;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all .3s;
+
+}
+
+.roomcard {
+    max-width: 100%;
+    max-height: 100%;
+    background: white;
+    border-radius: 30px;
+    box-shadow: 15px 15px 30px #bebebe,
+        -15px -15px 30px #ffffff;
+    transition: 0.2s ease-in-out;
+}
+
+.roomcard .img {
+    width: 100%;
+    height: 20%;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    background: linear-gradient(#e66465, #9198e5);
+    display: flex;
+    align-items: top;
+    justify-content: right;
+}
+
+.roomcard .save {
+    transition: 0.2s ease-in-out;
+    border-radius: 10px;
+    margin: 20px;
+    width: 30px;
+    height: 30px;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.roomcard .text {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: space-around;
+}
+
+.roomcard .save .svg {
+    transition: 0.2s ease-in-out;
+    width: 15px;
+    height: 15px;
+}
+
+.roomcard .icon-box {
+    margin-top: 15px;
+    width: 70%;
+    padding: 10px;
+    background-color: #e3fff9;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.icon-box svg {
+    width: 17px;
+}
+
+.text .h3 {
+    font-family: 'Lucida Sans' sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: black;
+}
+
+.text .p {
+    font-family: 'Lucida Sans' sans-serif;
+    color: #999999;
+    font-size: 13px;
+}
+
+.icon-box .span {
+    margin-left: 10px;
+    font-family: 'Lucida Sans' sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: #9198e5;
+}
+
+.roomcard:hover {
+    cursor: pointer;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.save:hover {
+    transform: scale(1.1) rotate(10deg);
+}
+
+.save:hover .svg {
+    fill: #ced8de;
+}
