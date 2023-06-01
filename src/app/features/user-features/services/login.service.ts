@@ -19,7 +19,6 @@ interface ApiResponse {
 
 export class LoginService {
 
-  isSellerLoggedIn = new BehaviorSubject<boolean>(false);
 
   private apiUrl = 'http://localhost:3000/api'
   constructor(private http: HttpClient, private router: Router) { }
@@ -35,7 +34,6 @@ export class LoginService {
       // }
       if (result && result.body) { // check if result.body is not null
         const token = result.body.token;
-        this.isSellerLoggedIn.next(true);
         localStorage.setItem('userToken', token);
         this.router.navigate(['/global-study-room']);
       }
