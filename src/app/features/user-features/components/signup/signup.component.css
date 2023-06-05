@@ -29,6 +29,14 @@ body {
     }
 }
 
+
+.error {
+    color: red;
+    margin-top: 0.3rem;
+    font-size: 0.7rem;
+    display: block;
+}
+
 .form_container {
     margin: 10%;
     align-self: center;

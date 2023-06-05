@@ -29,6 +29,8 @@ export class SignupService {
 
 
   userSignUp(data: any) {
+    console.log(data ,"data from the service");
+    
     return this.http.post<ApiResponse>(`${this.apiUrl}/auth/register`, data, { observe: 'response' }).subscribe((result) => {
       if (result && result.body) { // check if result.body is not null
         const token = result.body.token;
