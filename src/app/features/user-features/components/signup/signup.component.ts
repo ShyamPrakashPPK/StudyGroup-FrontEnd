@@ -4,6 +4,8 @@ import { AuthService } from 'src/app/core/authentication/auth.service';
 import { SignupService } from '../../services/signup.service'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { passwordChecker } from 'src/app/shared/password-checker';
+import { UserAuthService } from '../../services/user-auth.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-signup',
@@ -12,13 +14,22 @@ import { passwordChecker } from 'src/app/shared/password-checker';
 })
 export class SignupComponent {
 
-  myForm!: FormGroup;
+  user!: FormGroup;
+  submitted: boolean = false
+
+  signupSubscription!:Subscription
 
 
-  constructor(private formBuilder: FormBuilder, private route: Router, private auth: AuthService, private signup: SignupService) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private userAuthService: UserAuthService,
+    private route: Router,
+    private auth: AuthService,
+    private signup: SignupService) { }
 
   ngOnInit() {
-    this.myForm = this.formBuilder.group({
+
+    this.user = this.formBuilder.group({
       first_name: ['', Validators.required],
       last_name: ['', Validators.required],
       email_address: ['', Validators.required, Validators.email],
@@ -30,27 +41,27 @@ export class SignupComponent {
   }
 
   get r() {
-    return this.myForm.controls
+    return this.user.controls
   }
-
-
-  selectEducation() {
-    this.route.navigate(['selectEducation'])
-  }
-
 
   signUp() {
-    console.log("....");
-    if (this.myForm.valid) {
-      const newUser = {
+    this.submitted = true;
+    if (this.user.valid) {
+      const user = {
         firstName: this.r['first_name'].value,
         lastName: this.r['last_name'].value,
         email: this.r['email_address'].value,
         password: this.r['password'].value
       }
-      this.signup.userSignUp(newUser)
+      this.signupSubscription = this.userAuthService.signUp(user).subscribe(
+        (response) => {
+          window.localStorage.setItem('token',response as string)
+        }
+      )
+
+      this.signup.userSignUp(user)
     } else {
-      this.myForm.markAllAsTouched();
+      this.user.markAllAsTouched();
     }
 
 
