@@ -32,7 +32,7 @@ export class SignupComponent {
     this.user = this.formBuilder.group({
       first_name: ['', Validators.required],
       last_name: ['', Validators.required],
-      email_address: ['', Validators.required, Validators.email],
+      email_address: ['',[ Validators.required, Validators.email]],
       password: ['', Validators.required],
       confirmPassword: ['', Validators.required]
     }, {
@@ -45,8 +45,12 @@ export class SignupComponent {
   }
 
   signUp() {
+    console.log("//////////////////////");
+    
     this.submitted = true;
     if (this.user.valid) {
+      console.log(".........................................");
+      
       const user = {
         firstName: this.r['first_name'].value,
         lastName: this.r['last_name'].value,
@@ -61,6 +65,8 @@ export class SignupComponent {
 
       this.signup.userSignUp(user)
     } else {
+      console.log("[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[");
+      
       this.user.markAllAsTouched();
     }
 
