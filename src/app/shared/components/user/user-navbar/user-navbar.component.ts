@@ -27,6 +27,10 @@ export class UserNavbarComponent {
   }
 
 
+  chatRedirect() {
+    this.route.navigate(['/chat'])
+  }
+
 //user profile or stat room
   profile() {
     this.route.navigate(['/user-profile-and-stats'])

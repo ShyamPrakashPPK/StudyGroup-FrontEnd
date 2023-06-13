@@ -32,6 +32,9 @@ import { MatSortModule } from '@angular/material/sort';
 import { GlobalFeedComponent } from './features/user-features/components/global-feed/global-feed.component';
 import { UserSoloRoomComponent } from './features/user-features/components/user-solo-room/user-solo-room.component';
 import { UserStatsProfileComponent } from './features/user-features/components/user-stats-profile/user-stats-profile.component';
+import { ChatComponent } from './features/user-features/components/chat/chat.component';
+import { ChatContainerComponent } from './features/user-features/components/chat/chat-container/chat-container.component';
+import { MessagesContainerComponent } from './features/user-features/components/chat/messages-container/messages-container.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +48,11 @@ import { UserStatsProfileComponent } from './features/user-features/components/u
     AdminLoginComponent,
     GlobalFeedComponent,
     UserSoloRoomComponent,
-    UserStatsProfileComponent
+    UserStatsProfileComponent,
+    ChatComponent,
+    ChatContainerComponent,
+    MessagesContainerComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -58,7 +65,8 @@ import { UserStatsProfileComponent } from './features/user-features/components/u
     AngularFireModule.initializeApp(enviornment.firebaseConfig),
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+
   ],
   providers: [
     { provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher }

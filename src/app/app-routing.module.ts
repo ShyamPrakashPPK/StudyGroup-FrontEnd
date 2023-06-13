@@ -25,6 +25,7 @@ import { UserStatsProfileComponent } from './features/user-features/components/u
 
 /////components
 import { AdminLoginComponent } from './features/admin-features/components/admin-login/admin-login.component';
+import { ChatComponent } from './features/user-features/components/chat/chat.component';
 
 const routes: Routes = [
   {
@@ -66,6 +67,11 @@ const routes: Routes = [
   {
     path: 'user-profile-and-stats',
     component: UserStatsProfileComponent,
+    canActivate: [UserAuthGuardService]
+  },
+  {
+    path: 'chat',
+    component: ChatComponent,
     canActivate: [UserAuthGuardService]
   },
   ////////////////////////////////////////////////////////////admin routers////////////////////////////////////////////////////////////

@@ -4,16 +4,13 @@
     flex-wrap: wrap;
 }
 
-.bodypart {
-    margin-right: 15%;
-}
+
 
 
 .message-card {
     position: absolute;
     top: 0;
     margin: 5% 3% 0% 1%;
-    right: 0;
     width: 300px;
     max-height: 100%;
     display: flex;
