@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+// import { JwtdecodeService } from 'src/app/core/modules/services/jwtdecode.service';
 
 @Component({
   selector: 'app-globalroom',
@@ -9,6 +10,17 @@ import { Router } from '@angular/router';
 export class GlobalroomComponent {
 
   constructor(private route: Router) { }
+
+  // decodeToken() {
+  //   const token = localStorage.getItem('token'); // Retrieve the token from local storage
+  //   if (token) {
+  //     const decodedToken = this.jwtDecodeService.decodeToken(token);
+  //     console.log('Decoded Token:', decodedToken);
+  //   } else {
+  //     console.error('Token not found in local storage');
+  //   }
+  // }
+
 
   //for solo study room
   soloStudyRoom() {

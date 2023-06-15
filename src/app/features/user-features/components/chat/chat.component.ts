@@ -21,9 +21,12 @@ export class ChatComponent {
   constructor(private _chatService: ChatService) { }
 
   ngOnInit(): void {
+    
     this._chatService.connect();
     this._chatService.getCurrentUser().subscribe(user => this.currentUser = user);
-    this._chatService.users().subscribe((x: any[]) => this.users = x);
+    console.log(this.currentUser);
+
+    this._chatService.users(this.currentUser.id).subscribe((x: any[]) => this.users = x);
     this._chatService.getPersonalMessages().subscribe((message: any) => {
       if ((message.sender === this.currentUser.email && message.recipient === this.selectedUser) ||
         (message.sender === this.selectedUser && message.recipient === this.currentUser.email)) {

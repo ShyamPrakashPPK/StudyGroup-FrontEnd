@@ -32,6 +32,8 @@ export class LoginService {
       //   localStorage.setItem('user', JSON.stringify(result))
       //   this.router.navigate(['/selectEducation'])
       // }
+      console.log(result,"this is result");
+      
       if (result && result.body) { // check if result.body is not null
         const token = result.body.token;
         localStorage.setItem('userToken', token);

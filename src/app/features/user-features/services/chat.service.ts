@@ -12,16 +12,18 @@ import { HttpClient } from '@angular/common/http';
 
 export class ChatService {
 
+  id!:string
+
   private socket!: Socket;
-  private url = 'http://localhost:3000'; // your server local path
+  private url = 'http://localhost:3000/api/'; // your server local path
 
   constructor(private _http: HttpClient) { }
   
   connect(): void {
-    this.socket = io(this.url);
+    this.socket = io("http://localhost:3000");
   }
 
-  users(): any {
+  users(id:string): any {
     return this._http.get(`${this.url}chat/users`);
   }
 
