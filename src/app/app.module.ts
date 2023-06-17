@@ -35,6 +35,8 @@ import { UserStatsProfileComponent } from './features/user-features/components/u
 import { ChatComponent } from './features/user-features/components/chat/chat.component';
 import { ChatContainerComponent } from './features/user-features/components/chat/chat-container/chat-container.component';
 import { MessagesContainerComponent } from './features/user-features/components/chat/messages-container/messages-container.component';
+import { PageNotFoundComponent } from './shared/components/user/page-not-found/page-not-found.component';
+import { NewPostComponent } from './features/user-features/components/new-post/new-post.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +54,8 @@ import { MessagesContainerComponent } from './features/user-features/components/
     ChatComponent,
     ChatContainerComponent,
     MessagesContainerComponent,
-
+    PageNotFoundComponent,
+NewPostComponent
   ],
   imports: [
     BrowserModule,

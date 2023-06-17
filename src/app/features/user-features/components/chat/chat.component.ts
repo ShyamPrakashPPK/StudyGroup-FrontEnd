@@ -17,17 +17,25 @@ export class ChatComponent {
   messages: any[] = [];
   users: any[] = [];
   message!: string;
+  userEmail: any;
 
-  constructor(private _chatService: ChatService) { }
+  constructor(private chatService: ChatService) { 
+    this.userEmail = localStorage.getItem('Email')
+  
+  }
+
 
   ngOnInit(): void {
+    console.log(this.userEmail,"ins");
     
-    this._chatService.connect();
-    this._chatService.getCurrentUser().subscribe(user => this.currentUser = user);
-    console.log(this.currentUser);
+    this.chatService.connect();
+    this.currentUser=localStorage.getItem('Email')
+    this.chatService.users().subscribe((users: any[]) => {
+      this.users = users;
+      console.log(this.users, "userssssssssssssssssssssssssssssssssss");
+    });
 
-    this._chatService.users(this.currentUser.id).subscribe((x: any[]) => this.users = x);
-    this._chatService.getPersonalMessages().subscribe((message: any) => {
+    this.chatService.getPersonalMessages().subscribe((message: any) => {
       if ((message.sender === this.currentUser.email && message.recipient === this.selectedUser) ||
         (message.sender === this.selectedUser && message.recipient === this.currentUser.email)) {
         message.sender === this.currentUser.email ? message.isSender = true : message.isReceiver = true;
@@ -43,7 +51,7 @@ export class ChatComponent {
     this.selectedUser = user.email;
     this.selectedUsername = user.username;
     this.selectedProfile = user.profile_pic;
-    this._chatService.getPreviousMessages(this.selectedUser).subscribe((messages: any) => {
+    this.chatService.getPreviousMessages(this.selectedUser).subscribe((messages: any) => {
       this.messages = messages.map((message: any) => {
         if ((message.sender === this.currentUser.email && message.recipient === this.selectedUser) ||
           (message.sender === this.selectedUser && message.recipient === this.currentUser.email)) {
@@ -57,7 +65,7 @@ export class ChatComponent {
 
   sendMessage(): void {
     if (this.message.trim() !== '') {
-      this._chatService.sendPersonalMessage({
+      this.chatService.sendPersonalMessage({
         sender: this.currentUser.email,
         recipient: this.selectedUser,
         text: this.message

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-global-feed',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class GlobalFeedComponent {
 
+  constructor(private route: Router) { }
+
+  newPost() {
+    this.route.navigate(['/addNewPost'])
+  }
 }

@@ -18,8 +18,8 @@
                                     </div>
                                     <div class="overflow-auto" style="position: relative;">
                                         <ul class="list-unstyled mb-0">
-                                            <app-messages-container *ngFor="let user of users" [username]="user.username"
-                                                [profile_pic]="user.profile_pic"
+                                            <app-messages-container *ngFor="let user of users" [firstName]="user.firstName"
+                                                
                                                 (click)="selectUser(user)"></app-messages-container>
                                         </ul>
                                     </div>

@@ -114,6 +114,7 @@ const materialModules = [
     ],
     declarations: [
         
-    ],
+    
+  ],
 })
 export class AngularMaterialModule { }

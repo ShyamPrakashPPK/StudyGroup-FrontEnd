@@ -26,8 +26,15 @@ import { UserStatsProfileComponent } from './features/user-features/components/u
 /////components
 import { AdminLoginComponent } from './features/admin-features/components/admin-login/admin-login.component';
 import { ChatComponent } from './features/user-features/components/chat/chat.component';
+import { compileClassMetadata } from '@angular/compiler';
+import { NewPostComponent } from './features/user-features/components/new-post/new-post.component';
+import { PageNotFoundComponent } from './shared/components/user/page-not-found/page-not-found.component';
 
 const routes: Routes = [
+  // {
+  //   path: '**',
+  //   component: PageNotFoundComponent
+  // },
   {
     path: '',
     component: LandingPageComponent,
@@ -73,6 +80,10 @@ const routes: Routes = [
     path: 'chat',
     component: ChatComponent,
     canActivate: [UserAuthGuardService]
+  },
+  {
+    path: 'addNewPost',
+    component: NewPostComponent
   },
   ////////////////////////////////////////////////////////////admin routers////////////////////////////////////////////////////////////
   {

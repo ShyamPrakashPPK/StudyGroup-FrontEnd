@@ -6,6 +6,6 @@ import { Component,Input } from '@angular/core';
   styleUrls: ['./messages-container.component.css']
 })
 export class MessagesContainerComponent {
-  @Input() username!: string;
+  @Input() firstName!: string;
   @Input() profile_pic!: string;
 }
